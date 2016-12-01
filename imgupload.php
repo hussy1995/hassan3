@@ -2,7 +2,7 @@
 
 if(isset($_REQUEST['submit'])){
     
-    
+    $imgfolder='images';
     if(!is_dir($imgfolder)){
         mkdir($imgfolder);
     }
@@ -10,14 +10,14 @@ if(isset($_REQUEST['submit'])){
     
     if(!is_dir($userfolder)){
         mkdir($userfolder);
-        mkdir($userfolder);
-        mkdir($userfolder);
         
     }
     
     $imagepath1=$imgfolder."/".basename($_FILES["myfile"]["name"]);
     $imagepath2=$userfolder."/".basename($_FILES["myfile"]["name"]);
     $imagetype=  pathinfo($imagepath1, PATHINFO_EXTENSION);
+    $imagetype2=  pathinfo($imagepath2, PATHINFO_EXTENSION);
+    $filesize=$_FILES["myfile"]["size"];
     $allowedfiles=  array("jpg","JPG");
 }
 if($filesize>10000000){
